@@ -1,0 +1,24 @@
+{
+  "recommendations": [
+    "Angular.ng-template",
+    "atlassian.atlascode",
+    "christian-kohler.path-intellisense",
+    "dbaeumer.vscode-eslint",
+    "donjayamanne.githistory",
+    "EditorConfig.EditorConfig",
+    "eg2.vscode-npm-script",
+    "esbenp.prettier-vscode",
+    "foxundermoon.shell-format",
+    "johnpapa.angular-essentials",
+    "johnpapa.Angular2",
+    "johnpapa.vscode-peacock",
+    "johnpapa.winteriscoming",
+    "kisstkondoros.vscode-codemetrics",
+    "ms-azuretools.vscode-docker",
+    "msjsdiag.debugger-for-chrome",
+    "PKief.material-icon-theme",
+    "redhat.vscode-yaml",
+    "TabNine.tabnine-vscode",
+    "tomoki1207.pdf"
+  ]
+}
