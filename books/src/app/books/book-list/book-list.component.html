@@ -1,1 +1,27 @@
-<p>book-list works!</p>
+<h1>Peters Bücherliste mit {{books.length}} Büchern</h1>
+
+<div *ngIf="books?.length; else noBooks">
+
+    <table>
+        <tr>
+            <td>Titel</td>
+            <td>ISBN</td>
+            <td>Preis</td>
+            <td>Rating</td>
+            <td>Aktionen</td>
+        </tr>
+        <tr *ngFor="let book of books">
+            <td>{{book.title}}</td>
+            <td>{{book.isbn}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.rating}}</td>
+            <td></td>
+        </tr>
+    </table>
+
+
+</div>
+
+<ng-template #noBooks>
+    Leider keine Bücher gefunden.
+</ng-template>
