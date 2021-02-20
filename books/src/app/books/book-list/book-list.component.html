@@ -2,8 +2,13 @@
 
 <div *ngIf="books?.length; else noBooks">
 
+    <button (click)="toggleCover()">
+        Cover <span>{{imageIsVisible ? "aus" : "ein" }}</span>blenden
+    </button>
+
     <table>
         <tr>
+            <td>Cover</td>
             <td>Titel</td>
             <td>ISBN</td>
             <td>Preis</td>
@@ -12,6 +17,9 @@
         </tr>
         <tr *ngFor="let book of books">
             <td>{{book.title}}</td>
+            <td style="width: 50px;">
+                <img [src]='book.coverUrl' [style.width.px]="imageWidth" *ngIf="imageIsVisible">
+            </td>
             <td>{{book.isbn}}</td>
             <td>{{book.price}}</td>
             <td>{{book.rating}}</td>
