@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { BooksModule } from './books/books.module';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalculatorComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, BooksModule

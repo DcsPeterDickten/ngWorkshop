@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookFilterPipe } from './book-filter.pipe';
 import { SharedModule } from '../shared/shared.module';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   declarations: [
     BookListComponent,
     BookFilterPipe,
+    BookDetailsComponent,
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, SharedModule

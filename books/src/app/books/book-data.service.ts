@@ -13,6 +13,8 @@ export class BookDataService {
   constructor(public http: HttpClient) { }
 
   getBooks(): Observable<BookInterface[]> {
-    return this.http.get<BookInterface[]>(`${this.URL_BACKEND}/books`);
+    const URL = `${this.URL_BACKEND}/books`;
+    console.log({ URL });
+    return this.http.get<BookInterface[]>(URL);
   }
 }
