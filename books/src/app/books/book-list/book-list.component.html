@@ -2,6 +2,10 @@
 
 <div *ngIf="books?.length; else noBooks">
 
+    <p> Filtern nach:
+        <input [(ngModel)]="filterText">
+    </p>
+
     <button (click)="toggleCover()">
         Cover <span>{{imageIsVisible ? "aus" : "ein" }}</span>blenden
     </button>
@@ -15,13 +19,13 @@
             <td>Rating</td>
             <td>Aktionen</td>
         </tr>
-        <tr *ngFor="let book of books">
+        <tr *ngFor="let book of books | bookFilter : filterText">
             <td>{{book.title}}</td>
             <td style="width: 50px;">
                 <img [src]='book.coverUrl' [style.width.px]="imageWidth" *ngIf="imageIsVisible">
             </td>
             <td>{{book.isbn}}</td>
-            <td>{{book.price}}</td>
+            <td>{{book.price | currency:'EUR':'symbol':'1.2-2'}}</td>
             <td>{{book.rating}}</td>
             <td></td>
         </tr>

@@ -5,12 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BookListComponent } from './books/book-list/book-list.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { BookFilterPipe } from './books/book-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    BookFilterPipe
   ],
   imports: [
     BrowserModule, FormsModule

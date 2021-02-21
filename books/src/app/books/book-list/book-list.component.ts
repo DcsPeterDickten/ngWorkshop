@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { BookInterface } from '../book-interface';
 
 @Component({
   selector: 'books-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
-export class BookListComponent implements OnInit {
+export class BookListComponent implements OnInit, OnChanges, OnDestroy {
 
-  books = [
+  books: BookInterface[] = [
     {
       isbn: '1234567890',
       title: 'Angular 11 rocks',
@@ -23,17 +24,27 @@ export class BookListComponent implements OnInit {
       coverUrl: 'https://m.media-amazon.com/images/I/61H1nLnd7rL._AC_UL320_.jpg'
     }
   ];
-
+  filterText = '';
   imageWidth = 50;
   imageIsVisible = true;
 
-  constructor() { }
+  constructor() {
+    console.log('constructor');
+  }
 
   ngOnInit(): void {
+    console.log('ngOnInit');
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('ngOnChanges', changes);
+  }
+
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy');
   }
 
   toggleCover() {
     this.imageIsVisible = !this.imageIsVisible;
   }
-
 }
