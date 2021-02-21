@@ -1,1 +1,6 @@
-<books-book-list></books-book-list>
+<a [routerLink]="['/']">Willkommen</a>
+<a [routerLink]="['/books']">Bücher</a>
+<a [routerLink]="['/nowhere']">Sonstiges</a>
+<div class='container'>
+    <router-outlet></router-outlet>
+</div>

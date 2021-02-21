@@ -3,18 +3,29 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { CalculatorComponent } from './calculator/calculator.component';
 import { BooksModule } from './books/books.module';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { RouterModule } from '@angular/router';
+import { BookListComponent } from './books/book-list/book-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalculatorComponent,
     WelcomeComponent,
+    PageNotFoundComponent,
   ],
   imports: [
-    BrowserModule, FormsModule, HttpClientModule, BooksModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    BooksModule,
+    RouterModule.forRoot([
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: 'welcome', component: WelcomeComponent },
+      { path: 'books', component: BookListComponent },
+      { path: '**', component: PageNotFoundComponent },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
