@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "backend:mock": "json-server ./src/data/books.json --id isbn --watch"
   },
   "private": true,
   "dependencies": {

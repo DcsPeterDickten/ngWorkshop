@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BookListComponent } from './books/book-list/book-list.component';
 import { CalculatorComponent } from './calculator/calculator.component';
@@ -17,7 +17,7 @@ import { RatingComponent } from './shared/rating/rating.component';
     RatingComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,4 @@
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { testObservables } from 'src/app/shared/testObservable';
 import { BookDataService } from '../book-data.service';
 import { BookInterface } from '../book-interface';
 
@@ -17,12 +16,15 @@ export class BookListComponent implements OnInit, OnChanges, OnDestroy {
 
   constructor(private bookDataservice: BookDataService) {
     console.log('constructor');
-    testObservables(10);
   }
 
   ngOnInit(): void {
     console.log('ngOnInit');
-    this.books = this.bookDataservice.getBooks();
+    this.bookDataservice.getBooks().subscribe(
+      (data) => { this.books = data },
+      (error) => alert(JSON.stringify(error)),
+      () => { console.log('done') }
+    );
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -38,7 +40,6 @@ export class BookListComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   userHasRated(event) {
-    console.log({ event });
     const currentBook = this.books.find((book) => book.isbn === event);
     currentBook.rating = Math.min(5, this.round(currentBook.rating + 0.1));
   }
