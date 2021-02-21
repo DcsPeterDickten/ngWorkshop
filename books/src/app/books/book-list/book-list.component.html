@@ -26,7 +26,9 @@
             </td>
             <td>{{book.isbn}}</td>
             <td>{{book.price | currency:'EUR':'symbol':'1.2-2'}}</td>
-            <td>{{book.rating}}</td>
+            <td>
+                <books-rating [id]="book.isbn" [stars]="book.rating" (notify)="userHasRated($event)"></books-rating>
+            </td>
             <td></td>
         </tr>
     </table>

@@ -13,7 +13,7 @@ export class BookListComponent implements OnInit, OnChanges, OnDestroy {
       isbn: '1234567890',
       title: 'Angular 11 rocks',
       price: 12.99,
-      rating: 4.9,
+      rating: 4.0,
       coverUrl: 'https://m.media-amazon.com/images/I/61+Qbwu03kL._AC_UL320_.jpg'
     },
     {
@@ -46,5 +46,15 @@ export class BookListComponent implements OnInit, OnChanges, OnDestroy {
 
   toggleCover() {
     this.imageIsVisible = !this.imageIsVisible;
+  }
+
+  userHasRated(event) {
+    console.log({ event });
+    const currentBook = this.books.find((book) => book.isbn === event);
+    currentBook.rating = Math.min(5, this.round(currentBook.rating + 0.1));
+  }
+
+  round(v: number): number {
+    return Math.floor(v * 100 + 0.5) / 100;
   }
 }
