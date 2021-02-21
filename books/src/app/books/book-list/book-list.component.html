@@ -23,7 +23,7 @@
             <td style="width: 50px;">
                 <img [src]='book.coverUrl' [style.width.px]="imageWidth" *ngIf="imageIsVisible">
             </td>
-            <td>{{book.title}}</td>
+            <td><a [routerLink]="['/books', book.isbn]">{{book.title}}</a> </td>
             <td>{{book.isbn}}</td>
             <td>{{book.price | currency:'EUR':'symbol':'1.2-2'}}</td>
             <td>

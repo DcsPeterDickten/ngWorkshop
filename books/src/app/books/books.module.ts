@@ -6,6 +6,7 @@ import { BookListComponent } from './book-list/book-list.component';
 import { BookFilterPipe } from './book-filter.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,9 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     BookDetailsComponent,
   ],
   imports: [
-    BrowserModule, FormsModule, HttpClientModule, SharedModule
+    BrowserModule, FormsModule, SharedModule, RouterModule, HttpClientModule
   ],
   providers: [],
-  exports: [BookListComponent]
+  exports: [BookListComponent, BookDetailsComponent]
 })
 export class BooksModule { }

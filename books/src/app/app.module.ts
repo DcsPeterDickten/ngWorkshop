@@ -5,9 +5,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BooksModule } from './books/books.module';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { BookListComponent } from './books/book-list/book-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BookDetailsComponent } from './books/book-details/book-details.component';
+
+const routing: Routes = [
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'books/:isbn', component: BookDetailsComponent },
+  { path: 'books', component: BookListComponent },
+  { path: '**', component: PageNotFoundComponent },
+];
 
 @NgModule({
   declarations: [
@@ -20,12 +29,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     HttpClientModule,
     BooksModule,
-    RouterModule.forRoot([
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: 'welcome', component: WelcomeComponent },
-      { path: 'books', component: BookListComponent },
-      { path: '**', component: PageNotFoundComponent },
-    ])
+    RouterModule.forRoot(routing, { enableTracing: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
