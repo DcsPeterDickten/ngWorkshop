@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { BookDataService } from '../book-data.service';
 import { BookInterface } from '../book-interface';
 
 @Component({
@@ -8,32 +9,18 @@ import { BookInterface } from '../book-interface';
 })
 export class BookListComponent implements OnInit, OnChanges, OnDestroy {
 
-  books: BookInterface[] = [
-    {
-      isbn: '1234567890',
-      title: 'Angular 11 rocks',
-      price: 12.99,
-      rating: 4.0,
-      coverUrl: 'https://m.media-amazon.com/images/I/61+Qbwu03kL._AC_UL320_.jpg'
-    },
-    {
-      isbn: '1234567891',
-      title: 'Angular 12 rocks even more',
-      price: 13.99,
-      rating: 5.0,
-      coverUrl: 'https://m.media-amazon.com/images/I/61H1nLnd7rL._AC_UL320_.jpg'
-    }
-  ];
+  books: BookInterface[] = [];
   filterText = '';
   imageWidth = 50;
   imageIsVisible = true;
 
-  constructor() {
+  constructor(private bookDataservice: BookDataService) {
     console.log('constructor');
   }
 
   ngOnInit(): void {
     console.log('ngOnInit');
+    this.books = this.bookDataservice.getBooks();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
