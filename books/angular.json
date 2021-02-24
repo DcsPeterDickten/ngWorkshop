@@ -98,8 +98,8 @@
             "tsConfig": [
               "tsconfig.app.json",
               "tsconfig.spec.json",
-              "e2e/tsconfig.json",
-              "tsconfig.server.json"
+              "tsconfig.server.json",
+              "cypress/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -107,10 +107,11 @@
           }
         },
         "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+          "builder": "@briebug/cypress-schematic:cypress",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "books:serve"
+            "devServerTarget": "books:serve",
+            "watch": true,
+            "headless": false
           },
           "configurations": {
             "production": {
@@ -163,6 +164,30 @@
           },
           "configurations": {
             "production": {}
+          }
+        },
+        "cypress-run": {
+          "builder": "@briebug/cypress-schematic:cypress",
+          "options": {
+            "devServerTarget": "books:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "books:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@briebug/cypress-schematic:cypress",
+          "options": {
+            "devServerTarget": "books:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "books:serve:production"
+            }
           }
         }
       }
