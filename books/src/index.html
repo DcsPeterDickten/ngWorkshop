@@ -1,13 +1,25 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Books</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script>
+    const observer = new PerformanceObserver((entryList) => {
+      for (const entry of entryList.getEntriesByName('first-contentful-paint')) {
+        console.log('FCP candidate:', entry.startTime, entry);
+      }
+    });
+    observer.observe({ type: 'paint', buffered: true });
+  </script>
 </head>
+
 <body>
   <books-root></books-root>
 </body>
+
 </html>

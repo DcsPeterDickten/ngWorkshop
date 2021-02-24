@@ -26,11 +26,11 @@ const routing: Routes = [
     PageNotFoundComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
     HttpClientModule,
     BooksModule,
-    RouterModule.forRoot(routing, { enableTracing: true })
+    RouterModule.forRoot(routing, { enableTracing: false, initialNavigation: 'enabled' })
   ],
   providers: [],
   bootstrap: [AppComponent]
