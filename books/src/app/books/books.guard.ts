@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,7 @@ export class BooksGuard implements CanActivate {
 
     const isbn: string = route.params['isbn'] || '';
     console.log({ isbn });
-    return isbn.endsWith('0');
+    return true; // isbn.endsWith('0');
   }
 
 }

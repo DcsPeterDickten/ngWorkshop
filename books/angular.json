@@ -157,9 +157,7 @@
           "options": {
             "browserTarget": "books:build:production",
             "serverTarget": "books:server:production",
-            "routes": [
-              "/"
-            ]
+            "routesFile": "./routes-file.txt"
           },
           "configurations": {
             "production": {}
